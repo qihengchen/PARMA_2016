@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +25,7 @@ public class DDCRP {
 	@SuppressWarnings({ "unchecked", "rawtypes" }) //will be relaxed later
 	private void run() {
 		for (int i = 0; i < _customers.size(); i++) {
+			//System.out.println(i);
 			Customer c_i = _customers.get(i);
 			
 			// link with an existing customer or itself
@@ -55,8 +55,7 @@ public class DDCRP {
 	
 	//print out pointer info, for debugging and visualization
 	public void inspect_customers() {
-		System.out.println("there are " + _tables.size() + " tables");
-		
+		System.out.printf("    %d tables\n", _tables.size());
 	}
 	
 	public List<Table> get_tables() {

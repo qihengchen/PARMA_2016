@@ -10,7 +10,6 @@ public class DistanceF implements F{
 	private Map<String, Edge> _edges; // = new HashMap<String, Edge>();
 	
 	public DistanceF() {
-		Edge edge = new Edge("str");
 		try {
 			String ser_path = "/Users/Qiheng/Dropbox/wna_norms.ser";
 		    ObjectInputStream in = new ObjectInputStream(new FileInputStream(ser_path));
@@ -30,7 +29,8 @@ public class DistanceF implements F{
 		Mention mi = (Mention) i, mj = (Mention) j;
 		String key1 = String.join(",", mi.doc_id(), mi.m_id(), mj.doc_id(), mj.m_id());
 		String key2 = String.join(",", mj.doc_id(), mj.m_id(), mi.doc_id(), mi.m_id());
-		return _edges.containsKey(key1)? _edges.get(key1).getDistance() : _edges.get(key2).getDistance(); 
+		return _edges.containsKey(key1)? _edges.get(key1).getDistance() : (_edges.containsKey(key2)? 
+				_edges.get(key2).getDistance() : 0); 
 	}
 
 }
