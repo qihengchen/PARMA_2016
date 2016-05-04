@@ -12,8 +12,12 @@ public class Mention implements Customer {
 		_doc_id = doc_id;
 		_m_id = m_id;
 	}
-
+	
 	@Override
+	public String toString() {
+		return _doc_id + "," + _m_id;
+	}
+
 	public void pointed_by(Customer j) {
 		_pointers.add(j);
 	}
@@ -43,17 +47,14 @@ public class Mention implements Customer {
 		return m.doc_id() == _doc_id && m.m_id() == _m_id;
 	}
 	
-	@Override
 	public void first_to_sit(Table table) {
 		_sit_at = table;
 	}
 	
-	@Override
 	public Table get_table() {
 		return _sit_at;
 	}
 	
-	@Override
 	public List<Customer> get_pointers() {
 		return _pointers;
 	}
